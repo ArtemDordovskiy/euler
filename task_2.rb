@@ -5,7 +5,7 @@ class Euler
   end
 
   def solve
-    (1...@n).map do |i| 
+    (1...@n).each do |i| 
       if fib(i)<@n
         @fibs_array.push(fib(i))
       else
