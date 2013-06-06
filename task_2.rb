@@ -5,9 +5,10 @@ class Euler
   end
 
   def solve
-    (1...@n).map do |i| 
-      if fib(i)<@n
-        @fibs_array.push(fib(i))
+    (1...@n).each do |i|
+      fibs = fib(i)
+      if fibs<@n
+        @fibs_array.push(fibs)
       else
         break
       end
