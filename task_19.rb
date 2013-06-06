@@ -7,7 +7,7 @@ class Euler
   end
 
   def solve
-    (@date_start..@date_end).inject(0){|result, date| (date.wday == 0 && date.mday == 1)? result+1: result}
+    (@date_start..@date_end).count{ |date| date.wday == 0 && date.mday == 1 }
   end
 end
 
