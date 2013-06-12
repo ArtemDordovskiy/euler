@@ -9,13 +9,26 @@ class Euler
 
   private
   def palindrome(n)
-    array_of_palindromes = []
-    (100..n).each do |i|
-      (100..n).each do |j|
-        array_of_palindromes.push(i*j) if check((i*j).to_s)
+    p_new = 0
+    p_old = 0
+    while n >= 100 do
+      m = n
+      while m >= 100 do
+        if check((n*m).to_s)
+          p_new = n*m
+          if p_new > p_old
+            p_old = p_new
+            m = m -1
+          else
+            break
+          end
+        else
+          m = m-1
+        end
       end
+      (p_old > (n-1)**2)? break : n = n-1
     end
-    array_of_palindromes.max
+    p_old
   end
 
   def check(number)
