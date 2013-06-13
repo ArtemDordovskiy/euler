@@ -1,3 +1,5 @@
+require 'prime'
+
 class Euler
   def initialize(n=10001)
     @n = n
@@ -16,7 +18,12 @@ class Euler
     end
     @array_of_prime_number.last
   end
+
+  def solve_2
+    (Prime.first 10001).last
+  end
 end
 
 task_7 = Euler.new
 p task_7.solve
+p task_7.solve_2

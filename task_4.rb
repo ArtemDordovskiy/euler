@@ -1,29 +1,30 @@
 class Euler
-  def initialize(n=999)
+  def initialize(n=999, m=100)
     @n = n
+    @m = m
   end
 
   def solve
-    palindrome(@n)
+    palindrome(@n, @m)
   end
 
   private
-  def palindrome(n)
+  def palindrome(n,m)
     p_new = 0
     p_old = 0
-    while n >= 100 do
-      m = n
-      while m >= 100 do
-        if check((n*m).to_s)
-          p_new = n*m
+    while n >= m do
+      x = n
+      while x >= m do
+        if check((n*x).to_s)
+          p_new = n*x
           if p_new > p_old
             p_old = p_new
-            m = m -1
+            x = x -1
           else
             break
           end
         else
-          m = m-1
+          x = x-1
         end
       end
       (p_old > (n-1)**2)? break : n = n-1
@@ -32,7 +33,7 @@ class Euler
   end
 
   def check(number)
-    number[0..2] == number[3..5].reverse
+    number == number.reverse
   end
 end
 
