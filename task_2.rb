@@ -18,11 +18,7 @@ class Euler
 
   private
   def fib(n, a=0, b=1)
-    if n==0
-      a
-    else
-      fib(n-1, b, a+b)
-    end
+    (n==0)? a : fib(n-1, b, a+b)
   end
 end
 
