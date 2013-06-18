@@ -1,23 +1,21 @@
 class Euler
   def initialize(n=600851475143)
     @n = n
-    @array_of_div = []
+    @max = 0
   end
 
   def solve
     div(@n)
-    @array_of_div.max
+    @max
   end
 
   private
   def div(num)
-    (2..num).each do |i|
-      if num%i==0
-        @array_of_div.push(i)
-        div(num/i)
-        break
-      end
+    i = 2
+    while num%i!=0 do
+      i+=1
     end
+    ((num/i) > 1)? div(num/i) : @max = i
   end
 end
 

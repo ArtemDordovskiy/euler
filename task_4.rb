@@ -8,6 +8,19 @@ class Euler
     palindrome(@n, @m)
   end
 
+  def solve_2
+   cc = 0
+    999.downto(332) do |i|
+      c = (i.to_s+i.to_s.reverse).to_i
+      999.downto(c/999) do |x|
+        cc+=1
+        if (c%x==0 && (c/x).to_s.length==3 && x.to_s.length==3)
+          return c
+        end
+      end
+    end
+  end
+
   private
   def palindrome(n,m)
     p_new = 0
@@ -39,3 +52,4 @@ end
 
 task_4 = Euler.new
 p task_4.solve
+p task_4.solve_2

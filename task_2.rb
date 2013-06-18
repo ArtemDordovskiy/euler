@@ -1,24 +1,16 @@
 class Euler
   def initialize(n=4000000)
     @n = n
-    @fibs_array = []
+    @fibs = [1]
   end
 
   def solve
-    (1...@n).each do |i|
-      fibs = fib(i)
-      if fibs<@n
-        @fibs_array.push(fibs)
-      else
-        break
-      end
+    fib = 1
+    while fib < @n do
+      @fibs << fib
+      fib = fib + @fibs[-2]
     end
-    sum = @fibs_array.inject(0){|result, i| i.even?? result+i : result}
-  end
-
-  private
-  def fib(n, a=0, b=1)
-    (n==0)? a : fib(n-1, b, a+b)
+    sum = @fibs.inject(0){|result, i| i.even?? result+i : result}
   end
 end
 
