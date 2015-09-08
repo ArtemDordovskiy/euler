@@ -6,9 +6,13 @@ class Euler
   def solve
     i = 0
     max = 0
-    while i <= @n.length-5 do
-      if @n[i].to_i > 0 && @n[i+1].to_i > 0 && @n[i+2].to_i > 0 && @n[i+3].to_i > 0 && @n[i+4].to_i > 0
-        current = @n[i].to_i * @n[i+1].to_i * @n[i+2].to_i * @n[i+3].to_i * @n[i+4].to_i 
+    while i <= @n.length-13 do
+      if @n[i].to_i > 0 && @n[i+1].to_i > 0 && @n[i+2].to_i > 0 && @n[i+3].to_i > 0 && @n[i+4].to_i > 0 &&
+        @n[i+5].to_i > 0 && @n[i+6].to_i > 0 && @n[i+7].to_i > 0 && @n[i+8].to_i > 0 && @n[i+9].to_i > 0 &&
+        @n[i+10].to_i > 0 && @n[i+11].to_i > 0 && @n[i+12].to_i > 0
+        current = @n[i].to_i * @n[i+1].to_i * @n[i+2].to_i * @n[i+3].to_i * @n[i+4].to_i *
+          @n[i+5].to_i * @n[i+6].to_i * @n[i+7].to_i * @n[i+8].to_i * @n[i+9].to_i *
+          @n[i+10].to_i * @n[i+11].to_i * @n[i+12].to_i
         if current > max
           max = current
         end
