@@ -1,5 +1,3 @@
-require 'date'
-
 class Euler
   def initialize(number=100)
     @number = number
